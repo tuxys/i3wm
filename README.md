@@ -1,6 +1,9 @@
 # i3wm
 *Only the most logical [1] and elegant [2] way of customizing i3wm.*
 
+**config** -- main custom i3 config file.
+ * Add it to: ``usage: ~/.config/i3/config``
+
 ### Bash Scripts
 NOTE: Download and use ``install.sh`` or do it manually. *(recommended)*
 1. Create bash script folder: ``mkdir -p ~/.config/i3/bash``
@@ -10,9 +13,9 @@ NOTE: Download and use ``install.sh`` or do it manually. *(recommended)*
 5. In your i3 config at ``~/.config/i3/config``
 7. add script path: ``set $xsh ~/.config/i3/bash``
 8. add exec variable: ``set $run exec --no-startup-id``
-9. and below commands you like to use. 
+9. and below commands you like to use.
 
-**help.sh** -- i3wm bash script helper. *(first of many scripts)*
+**help.sh** -- i3 bash script helper. *(first of many scripts)*
  * ``mark`` - create window mark.
   ``usage: bindsym $mod+m $run $xsh/help.sh -mark``
  * ``nark`` - remove window mark.
