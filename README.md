@@ -12,7 +12,7 @@ NOTE: Download and use ``install.sh`` or do it manually. *(recommended)*
 8. add exec variable: ``set $run exec --no-startup-id``
 9. and below commands you like to use. 
 
-**help.sh** -- i3wm bash script helper.
+**help.sh** -- i3wm bash script helper. *(first of many scripts)*
  * ``mark`` - create window mark.
   ``usage: bindsym $mod+m $run $xsh/help.sh -mark``
  * ``nark`` - remove window mark.
