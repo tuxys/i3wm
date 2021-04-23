@@ -1,5 +1,5 @@
 # i3wm
-*Only the most logical[1] and elegant[2] way of customizing i3wm*
+*Only the most logical [1] and elegant [2] way of customizing i3wm.*
 
 ### Bash Scripts
 NOTE: Download and use ``install.sh`` or do it manually. *(recommended)*
