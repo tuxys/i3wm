@@ -8,8 +8,9 @@ NOTE: Download and use ``install.sh`` or do it manually. *(recommended)*
 3. Change script permission: ``chown <user>:<group> ~/.config/i3/bash/bash.sh``
 4. Add script path and commands into your i3 config: ``~/.config/i3/config``
 5. In your i3 config at ``~/.config/i3/config``
-6. add script path: ``set $xsh ~/.config/i3/bash``
-7. and any below commands you like to use. 
+7. add script path: ``set $xsh ~/.config/i3/bash``
+8. add exec variable: ``set $run exec --no-startup-id``
+9. and below commands you like to use. 
 
 **help.sh** -- i3wm bash script helper.
  * ``mark`` - create window mark.
