@@ -29,5 +29,15 @@ This i3 customizations are small and in some cases incomplete, like theme for ``
 ### Bugs & Requests
 You are welcome to use github issues to report bugs and request features. But I give no garantee fixing or implementing any of them :-) However, I will do my best ^_^
 
+### Reference
+* [Official i3wm Website](https://i3wm.org/)
+* [Official i3wm Documentation](https://i3wm.org/docs/)
+* [Official i3wm GitHub Repository](https://github.com/i3/i3)
+* [i3wm on Wikipedia](https://en.wikipedia.org/wiki/I3_(window_manager))
+
+### Thank You
+Thank you to all who work on i3 tiling window manager and especialy Michael Stapelberg.
+
+### Definition
 1. *logical - characterized by or capable of clear, sound reasoning.*
 2. *elegant - pleasingly graceful and stylish in appearance or manner.*
