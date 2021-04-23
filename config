@@ -1,0 +1,345 @@
+#
+# i3 Custom Config
+# by Tux {2021-04-23}
+#
+
+##
+## NOTE: This is only a very short snippet of upcoming i3 config. (Stay tunned!)
+## You are welcome to change this file to your preference. Especially key binding.
+##
+
+## Default i3 Config Path
+set $cfg ~/.config/i3
+
+## Custom i3 Bash Scripts Path
+set $xsh ~/.config/i3/bash
+
+## i3 Xinerama Mode
+## Required on Multiple Video Cards and Monitors.
+force_xinerama yes
+
+## Disable Mouse Screen Focus
+focus_follows_mouse no
+
+## Disable Quick Back/Forth Workspace Switching
+workspace_auto_back_and_forth no
+
+## Fixing Titles And Borders
+title_align center
+hide_edge_borders both
+default_border pixel 1
+default_floating_border pixel 1
+
+## Set Default Keys (Alt/NumLock/WinKey)
+set $alt Mod1
+set $nlk Mod2
+set $mod Mod4
+
+## Set Additional Keys (Optional)
+set $esc Escape
+set $del Delete
+set $ctl Control
+set $bks BackSpace
+
+## Floating Window Key (WinKey)
+floating_modifier $mod
+
+## Set Default Monitors (Four Monitors)
+## 0 = ($sc) Screen Center
+## 1 = ($sr) Screen Right
+## 2 = ($sl) Screen Left
+## 3 = ($st) Screen Top
+
+set $sc xinerama-0
+set $sr xinerama-1
+set $sl xinerama-2
+set $st xinerama-3
+
+## Set Default Workspaces With Icons
+## Requires: Font-Awesome 4.7 or 5.0 (for icons)
+set $ws0 "0: 0"
+set $ws1 "1: 1"
+set $ws2 "2: 2"
+set $ws3 "3: 3"
+set $ws4 "4: 4"
+set $ws5 "5: 5"
+set $ws6 "6: 6"
+set $ws7 "7: 7"
+set $ws8 "8: 8"
+set $ws9 "9: 9"
+
+## Shorter exec Variables
+set $run exec --no-startup-id
+set $runs exec_always --no-startup-id
+
+## Set Workspace Per Monitor (Four Monitors)
+workspace $ws0 output $sc
+workspace $ws1 output $sr
+workspace $ws2 output $sl
+workspace $ws3 output $st
+
+## i3 Reload And Restart (Mod+Key)
+bindsym $mod+c reload
+bindsym $mod+r restart
+
+## Focus Workspaces (Mod+Arrows)
+bindsym $mod+Left focus output left
+bindsym $mod+Right focus output right
+bindsym $mod+Up focus output up
+bindsym $mod+Down focus output down
+
+## Focus Recent Workspace (Alt+Tab)
+bindsym $alt+Tab workspace back_and_forth
+
+## Focus Workspace On Same Screen (Alt+Arrows)
+## This is similar behaviour to XFCE workspaces.
+bindsym $alt+Left workspace prev_on_output
+bindsym $alt+Right workspace next_on_output
+
+## Move Windows Around Across Screens (Ctrl+Arrows)
+bindsym $ctl+Left move left
+bindsym $ctl+Right move right
+bindsym $ctl+Up move up
+bindsym $ctl+Down move down
+
+## Move Workspace Around Across Screens (Ctrl+Alt+Arrows)
+## For example: you want your center workspace to be your top? no problem!
+bindsym $ctl+$alt+Left move workspace to output left
+bindsym $ctl+$alt+Right move workspace to output right
+bindsym $ctl+$alt+Up move workspace to output up
+bindsym $ctl+$alt+Down move workspace to output down
+
+## Switch To Default Workspaces (Alt+Num)
+bindsym $alt+0 workspace $ws0
+bindsym $alt+1 workspace $ws1
+bindsym $alt+2 workspace $ws2
+bindsym $alt+3 workspace $ws3
+bindsym $alt+4 workspace $ws4
+bindsym $alt+5 workspace $ws5
+bindsym $alt+6 workspace $ws6
+bindsym $alt+7 workspace $ws7
+bindsym $alt+8 workspace $ws8
+bindsym $alt+9 workspace $ws9
+
+## Move Windows To Specific Workspaces And Focus Them (Mod+Num)
+bindsym $mod+0 move container to workspace number $ws0; workspace $ws0
+bindsym $mod+1 move container to workspace number $ws1; workspace $ws1
+bindsym $mod+2 move container to workspace number $ws2; workspace $ws2
+bindsym $mod+3 move container to workspace number $ws3; workspace $ws3
+bindsym $mod+4 move container to workspace number $ws4; workspace $ws4
+bindsym $mod+5 move container to workspace number $ws5; workspace $ws5
+bindsym $mod+6 move container to workspace number $ws6; workspace $ws6
+bindsym $mod+7 move container to workspace number $ws7; workspace $ws7
+bindsym $mod+8 move container to workspace number $ws8; workspace $ws8
+bindsym $mod+9 move container to workspace number $ws9; workspace $ws9
+
+## Split Workspaces (Horiz/Vert) (Mod+Key)
+bindsym $mod+h split v
+bindsym $mod+v split h
+
+## Resize Active Window (Mod+Alt+Arrows)
+bindsym $mod+$alt+Left resize grow width 1px or 1ppt
+bindsym $mod+$alt+Right resize shrink width 1px or 1ppt
+bindsym $mod+$alt+Up resize grow height 1px or 1ppt
+bindsym $mod+$alt+Down resize shrink height 1px or 1ppt
+
+## Change Workspace Layout (Mod+Alt+Key)
+bindsym $mod+space floating toggle
+bindsym $mod+$alt+t layout tabbed
+bindsym $mod+$alt+s layout stacking
+bindsym $mod+$alt+w layout toggle split
+bindsym $mod+$alt+f layout fullscreen toggle
+
+## ScratchPad (Mod+Key)
+## grave key is `
+bindsym $mod+grave move scratchpad
+bindsym $mod+z scratchpad show, floating disable
+
+## Hide Or Show All Status Bars (Mod+k)
+## todo: add per screen support.
+bindsym $mod+k bar mode toggle
+
+## Open Terminals (Use Any You Like!)
+bindsym $mod+$del $run termite -t "termite-$RANDOM"
+bindsym $del $run terminator -T "terminator-$RANDOM"
+
+## Kill Active Windows (Mod+q)
+bindsym $mod+Shift+q kill
+
+## Kill Windows Using Keyboard+Mouse (Mod+MiddleKey)
+bindsym --whole-window $mod+button2 kill
+
+## Xscreensaver + Locker (Lock-Key)
+bindsym Super_R $run xscreensaver-command -lock
+
+## i3lock With Background (Mod+l)
+## bindsym $mod+l $run i3lock -i $cfg/lock.png
+
+## Set Window Title (Mod+t)
+## todo: add in help.sh
+## bindsym $mod+t $run $xsh/help.sh -name
+
+## Rename Workspaces (Mod+Alt+n)
+## todo: add help.sh script
+## bindsym $mod+$alt+n $run $xsh/help.sh -wsre
+
+## Create Or Remove Window Marks Or GoTo Them
+bindsym $mod+m $run $xsh/help.sh -mark
+bindsym $mod+u $run $xsh/help.sh -nark
+bindsym $mod+g $run $xsh/help.sh -goto
+
+## Custom Rofi Scripts (Mod+Key)
+## todo: add rofi.sh or help.sh script
+## bindsym $mod+d $run $xsh/rofi.sh -menu
+## bindsym $mod+w $run $xsh/rofi.sh -wins
+
+## Control System Volume (Multi-Keys)
+## todo: add sound.sh script
+## bindsym XF86AudioMute $run $xsh/sound.sh -mute
+## bindsym XF86AudioRaiseVolume $run $xsh/sound.sh -raise
+## bindsym XF86AudioLowerVolume $run $xsh/sound.sh -lower
+
+## Control MPV Player "Volume" (Key+Mouse)
+## todo: add mpv.sh script
+## bindsym --whole-window $mod+button4 $run $xsh/mpv.sh -raise
+## bindsym --whole-window $mod+button5 $run $xsh/mpv.sh -lower
+
+## Control MPV Player "Seek" (Key+Mouse)
+## todo: add mpv.sh script
+## bindsym --whole-window $mod+button8 $run $xsh/mpv.sh -prev
+## bindsym --whole-window $mod+button9 $run $xsh/mpv.sh -next
+
+## Control MPV Player "Keys" (Multi-Keys)
+## todo: add mpv.sh script
+## bindsym XF86AudioPlay $run $xsh/mpv.sh -play
+## bindsym XF86AudioStop $run $xsh/mpv.sh -stop
+## bindsym XF86AudioPrev $run $xsh/mpv.sh -prev
+## bindsym XF86AudioNext $run $xsh/mpv.sh -next
+
+## Floating Windows
+for_window [class="notify-send"] floating enable
+for_window [class="Yad"] floating enable, border toggle
+for_window [class="Zenity"] floating enable, border toggle
+for_window [class="mpv"] floating enable, border toggle
+for_window [class="vlc"] floating enable, border toggle
+
+## Floating And Resized Windows
+for_window [class="Keepassx"] floating enable, border toggle, resize set 500px 300px
+for_window [class="Galculator"] floating enable, border toggle, resize set height 300px
+
+## Assign Windows To Screens
+assign [class="Keepassx"] output $sc
+
+## Default Font And Size
+font pango:Roboto Regular 18epx
+
+## NOTE: Saidly there is no elegant way of seperating config files in i3wm at this time.
+## In the future this modes and large portions of the code will be better organized.
+
+## Custom Quick System Modes
+## Requires: Font-Awesome 4.7 or 5.0 icons.
+set $system "   LogOff    Reboot    Shutdown "
+bindsym $mod+s mode $system
+mode $system {
+  bindsym l $run i3-msg exit; mode "default"
+  bindsym r $run systemctl reboot; mode "default"
+  bindsym s $run systemctl poweroff; mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+## Custom Quick Browser And Email Profiles (Mod+b)
+## Requires: Font-Awesome 4.7 or 5.0 icons.
+## todo: add web.sh script
+set $browser "   Firefox    Thunderbird    Default    Projects "
+bindsym $mod+b mode $browser
+mode $browser {
+  bindsym f $run firefox; mode "default"
+  bindsym e $run thunderbird; mode "default"
+  bindsym d $run $xsh/web.sh -d; mode "default"
+  bindsym p $run $xsh/web.sh -p; mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+# Custom Quick Software Modes (Mod+s)
+## Requires: Font-Awesome 4.7 or 5.0 icons.
+set $software "   ST3    ST2    Gimp    KeePassX    Color    Status"
+bindsym $mod+o mode $software
+mode $software {
+  bindsym 3 $run subl3; mode "default"
+  bindsym 2 $run subl2; mode "default"
+  bindsym g $run gimp; mode "default"
+  bindsym k $run keepassx; mode "default"
+  bindsym c $run gcolor2; mode "default"
+  bindsym s $run xfce4-taskmanager; mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+## Default Windows Colors (Dark Theme Used With "Numix-DarkBlue" theme.)
+client.urgent             #333333 #333333 #999999 #000000 #111111
+client.focused            #222222 #222222 #777777 #000000 #111111
+client.unfocused          #222222 #222222 #555555 #000000 #111111
+client.focused_inactive   #222222 #222222 #555555 #000000 #111111
+client.background         #000000 #000000 #000000 #000000 #111111
+client.placeholder        #000000 #000000 #000000 #000000 #111111
+
+##
+## NOTE: I like to have seperate bar on each screen with different settings.
+## But this is optional and you are welcome to just use one bar on all screens.
+##
+
+## Top Screen Bar
+bar {
+  id tbar
+  output $st
+  position top
+  tray_output None
+  strip_workspace_numbers yes
+  ## todo: add status config.
+  ## status_command i3blocks -c $cfg/status
+  ## todo: add dark colors.
+}
+
+## Left Screen Bar
+bar {
+  id lbar
+  output $sl
+  position top
+  tray_output None
+  strip_workspace_numbers yes
+  ## todo: add status config.
+  ## status_command i3blocks -c $cfg/status
+  ## todo: add colors.
+}
+
+## Right Screen Bar
+bar {
+  id rbar
+  output $sr
+  position top
+  tray_output None
+  strip_workspace_numbers yes
+  ## todo: add status config.
+  ## status_command i3blocks -c $cfg/status
+  ## todo: add colors.
+}
+
+## Center Screen Bar
+bar {
+  id cbar
+  output $sc
+  position top
+  tray_output $sc
+  strip_workspace_numbers yes
+  ## todo: add status config.
+  ## status_command i3blocks -c $cfg/status
+  ## todo: add colors.
+}
+
+## Set AutoStart Software
+$run xscreensaver
+# $run terminator
+
+#EOF: ~/.config/i3/config
