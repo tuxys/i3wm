@@ -21,10 +21,13 @@ NOTE: Download and use ``install.sh`` or do it manually. *(recommended)*
   ``usage: bindsym $mod+g $run $xsh/help.sh -goto``
   
 ### Motivation
-I've recently switched from XFCE to i3wm. I have used Linux and XFCE for a very long time. So I know my way around Linux and programming in general. By switching to new windows manager, I had to learn a lot of new tricks to customize it. One of the issues I had while learning i3wm is finding the right way of doing things. So this is why this git repo exists :-) I hope it helps other i3wm users.
+I've recently switched from XFCE to i3wm. I have used Linux and XFCE for a very long time. So I know my way around Linux and programming in general. By switching to new windows manager, I had to learn a lot of new tricks to customize it. One of the issues I had while learning i3 are finding the right way of doing things. So this is why this git repo exists :-) I hope it helps other i3wm users.
 
 ### Limitations
-Customizations of ``rofi`` and other related ``i3wm`` config files are not shared at this time. *This will be available a bit later.*
+This i3 customizations are small and in some cases incomplete, like theme for ``rofi`` for example will be shared later. Many more scripts and configs will be shared in upcoming weeks/months.
+
+### Bugs & Requests
+You are welcome to use github issues to report bugs and request features. But I give no garantee fixing or implementing any of them :-) However, I will do my best ^_^
 
 1. *logical - characterized by or capable of clear, sound reasoning.*
 2. *elegant - pleasingly graceful and stylish in appearance or manner.*
